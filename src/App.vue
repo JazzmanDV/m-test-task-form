@@ -176,6 +176,8 @@ export default {
 </script>
 
 <style scoped lang="sass">
+@import variables
+
 body
     margin: 0
 
@@ -202,7 +204,7 @@ body
 
     border-radius: 0.5rem
 
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2)
+    box-shadow: $primary-box-shadow
 
 .fieldsets-wrapper
     display: flex
@@ -217,5 +219,5 @@ body
     cursor: pointer
 
     &:hover
-        box-shadow: 0 0 12px rgba(0, 0, 0, 0.2)
+        box-shadow: $primary-box-shadow--hovered
 </style>

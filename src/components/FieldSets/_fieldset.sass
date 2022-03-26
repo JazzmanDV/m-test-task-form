@@ -1,3 +1,5 @@
+@import ../../variables
+
 .fieldset
     display: flex 
     flex-direction: column 
@@ -10,7 +12,7 @@
     border: none 
     border-radius: 0.5rem 
 
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) 
+    box-shadow: $primary-box-shadow
 
 .fieldset__title
     text-align: center 
@@ -24,17 +26,17 @@
     border: none 
     border-radius: 0.5rem 
 
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) 
+    box-shadow: $primary-box-shadow
 
     outline: none 
 
     transition: 0.25s box-shadow 
 
     &:focus-visible
-        box-shadow: 0 0 12px rgba(0, 0, 0, 0.2) 
+        box-shadow: $primary-box-shadow--hovered
 
 .input--error
-    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5) 
+    box-shadow: $error-box-shadow
 
     &:focus-visible
-        box-shadow: 0 0 12px rgba(255, 0, 0, 0.5) 
+        box-shadow: $error-box-shadow--hovered
