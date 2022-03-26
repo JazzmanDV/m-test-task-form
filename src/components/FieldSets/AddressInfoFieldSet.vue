@@ -68,6 +68,7 @@
 import ValidatedInput from "../ValidatedInput.vue";
 
 export default {
+    name: "AddressInfoFieldSet",
     components: { ValidatedInput },
     props: {
         $v: Object,

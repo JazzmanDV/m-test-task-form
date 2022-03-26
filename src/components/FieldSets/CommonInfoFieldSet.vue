@@ -100,6 +100,7 @@
 import ValidatedInput from "../ValidatedInput.vue";
 
 export default {
+    name: "CommonInfoFieldSet",
     components: { ValidatedInput },
     props: {
         $v: Object,

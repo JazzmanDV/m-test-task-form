@@ -57,6 +57,7 @@
 import ValidatedInput from "../ValidatedInput.vue";
 
 export default {
+    name: "PassportInfoFieldSet",
     components: { ValidatedInput },
     props: {
         $v: Object,

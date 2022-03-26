@@ -62,6 +62,7 @@ const notDefault = helpers.withParams({ type: "notDefault", value: "default" }, 
 });
 
 export default {
+    name: "App",
     components: { CommonInfoFieldSet, AddressInfoFieldSet, PassportInfoFieldSet },
     data() {
         return {
