@@ -188,7 +188,7 @@ body
 
     box-sizing: border-box
 
-    max-width: 60rem
+    max-width: 70rem
 
     margin-left: auto
     margin-right: auto
