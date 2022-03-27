@@ -17,7 +17,7 @@
                 :class="{ 'input--error': $v.passportSeries.$error }"
                 type="text"
                 placeholder="XXXX"
-                v-model="$v.passportSeries.$model"
+                v-model.trim="$v.passportSeries.$model"
             />
         </ValidatedInput>
 
@@ -27,7 +27,7 @@
                 :class="{ 'input--error': $v.passportNumber.$error }"
                 type="text"
                 placeholder="YYYYYY"
-                v-model="$v.passportNumber.$model"
+                v-model.trim="$v.passportNumber.$model"
             />
         </ValidatedInput>
 
@@ -37,7 +37,7 @@
                 :class="{ 'input--error': $v.passportSource.$error }"
                 type="text"
                 placeholder="Введите кем выдан паспорт"
-                v-model="$v.passportSource.$model"
+                v-model.trim="$v.passportSource.$model"
             >
             </textarea>
         </ValidatedInput>

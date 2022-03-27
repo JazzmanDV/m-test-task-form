@@ -45,6 +45,15 @@ const length = (length) => {
     });
 };
 
+const lengthWithoutSpaces = (length) => {
+    return helpers.withParams({ type: "length", value: length }, (value) => {
+        if (!value) {
+            return true;
+        }
+        return value.replaceAll(" ", "").length === length;
+    });
+};
+
 const startsWith = (character) => {
     return helpers.withParams({ type: "startsWith", value: character }, (value) => {
         if (!value) {
@@ -60,6 +69,8 @@ const notDefault = helpers.withParams({ type: "notDefault", value: "default" }, 
     }
     return value !== "default";
 });
+
+const numericWithSpaces = helpers.regex("numeric", /^[0-9\s]*$/);
 
 export default {
     name: "App",
@@ -109,8 +120,8 @@ export default {
         },
         phoneNumber: {
             required,
-            numeric,
-            length: length(11),
+            numeric: numericWithSpaces,
+            length: lengthWithoutSpaces(11),
             startsWith: startsWith("7"),
         },
         gender: {},
@@ -121,8 +132,8 @@ export default {
         dontSendSMS: {},
 
         index: {
-            numeric,
-            length: length(6),
+            numeric: numericWithSpaces,
+            length: lengthWithoutSpaces(6),
         },
         country: {
             maxLength: maxLength(50),
