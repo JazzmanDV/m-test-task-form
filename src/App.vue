@@ -6,7 +6,7 @@
                 <AddressInfoFieldSet :$v="$v" />
                 <PassportInfoFieldSet :$v="$v" />
             </div>
-            <input class="input button" type="submit" value="Создать нового клиента" v-on:click="onSubmit" />
+            <input class="button" type="submit" value="Создать нового клиента" v-on:click="onSubmit" />
         </form>
     </div>
 </template>
@@ -235,11 +235,27 @@ body
     gap: 1rem
 
 .button
+    font: inherit
+
     width: fit-content
     height: fit-content
 
+    background-color: white
+
+    padding: 0.5rem
+
+    border: none
+    border-radius: 0.5rem
+
+    outline: none
+
+    box-shadow: $primary-box-shadow
+
     cursor: pointer
 
-    &:hover
+    transition: 0.25s box-shadow
+
+    &:hover,
+    &:focus-visible
         box-shadow: $primary-box-shadow--hovered
 </style>
