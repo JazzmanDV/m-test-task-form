@@ -187,11 +187,14 @@ export default {
 };
 </script>
 
-<style scoped lang="sass">
-@import variables
-
+<style lang="sass">
 body
     margin: 0
+    background-color: #fafafa
+</style>
+
+<style scoped lang="sass">
+@import variables
 
 .app
     font-family: "Exo 2", sans-serif
@@ -199,6 +202,7 @@ body
 
     box-sizing: border-box
 
+    width: fit-content
     max-width: 70rem
 
     margin-left: auto
@@ -217,6 +221,8 @@ body
     border-radius: 0.5rem
 
     box-shadow: $primary-box-shadow
+
+    background-color: white
 
 .fieldsets-wrapper
     display: flex
