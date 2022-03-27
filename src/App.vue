@@ -188,6 +188,15 @@ export default {
 </script>
 
 <style lang="sass">
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300;600&display=swap")
+
+:root
+    font-family: "Exo 2", sans-serif
+    font-weight: 300
+
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+
 body
     margin: 0
     background-color: #fafafa
@@ -197,9 +206,6 @@ body
 @import variables
 
 .app
-    font-family: "Exo 2", sans-serif
-    font-weight: 300
-
     box-sizing: border-box
 
     width: fit-content
