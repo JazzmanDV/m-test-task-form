@@ -69,7 +69,7 @@ export default {
             lastName: "",
             firstName: "",
             middleName: "",
-            birthday: null,
+            birthday: "",
             phoneNumber: "",
             gender: "default",
             customerGroup: [],
@@ -87,7 +87,7 @@ export default {
             passportSeries: "",
             passportNumber: "",
             passportSource: "",
-            passportDate: null,
+            passportDate: "",
         };
     },
     validations: {
