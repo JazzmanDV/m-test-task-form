@@ -69,7 +69,7 @@ export default {
             lastName: "",
             firstName: "",
             middleName: "",
-            birthday: "",
+            birthdate: "",
             phoneNumber: "",
             gender: "default",
             customerGroup: [],
@@ -102,7 +102,7 @@ export default {
         middleName: {
             maxLength: maxLength(50),
         },
-        birthday: {
+        birthdate: {
             required,
             minDate: minDate(new Date("1900-01-01")),
             maxDate: maxDate(new Date()),

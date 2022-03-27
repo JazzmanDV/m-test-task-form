@@ -32,12 +32,12 @@
             />
         </ValidatedInput>
 
-        <ValidatedInput inputName="birthday" label="Дата рождения" :$v="$v">
+        <ValidatedInput inputName="birthdate" label="Дата рождения" :$v="$v">
             <input
                 class="input"
-                :class="{ 'input--error': $v.birthday.$error }"
+                :class="{ 'input--error': $v.birthdate.$error }"
                 type="date"
-                v-model="$v.birthday.$model"
+                v-model="$v.birthdate.$model"
             />
         </ValidatedInput>
 
