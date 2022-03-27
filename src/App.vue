@@ -165,7 +165,7 @@ export default {
             length: length(6),
         },
         passportSource: {
-            maxLength: maxLength(50),
+            maxLength: maxLength(150),
         },
         passportDate: {
             required,
