@@ -188,8 +188,6 @@ export default {
 </script>
 
 <style lang="sass">
-@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300;600&display=swap")
-
 :root
     font-family: "Exo 2", sans-serif
     font-weight: 300
