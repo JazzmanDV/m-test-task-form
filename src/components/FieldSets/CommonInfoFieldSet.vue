@@ -45,7 +45,7 @@
             <input
                 class="input"
                 :class="{ 'input--error': $v.phoneNumber.$error }"
-                type="text"
+                type="tel"
                 placeholder="7 XXX XXX XX XX"
                 v-model.trim="$v.phoneNumber.$model"
             />

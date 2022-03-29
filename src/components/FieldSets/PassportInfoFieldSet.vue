@@ -16,6 +16,7 @@
                 class="input"
                 :class="{ 'input--error': $v.passportSeries.$error }"
                 type="text"
+                inputmode="numeric"
                 placeholder="XXXX"
                 v-model.trim="$v.passportSeries.$model"
             />
@@ -26,6 +27,7 @@
                 class="input"
                 :class="{ 'input--error': $v.passportNumber.$error }"
                 type="text"
+                inputmode="numeric"
                 placeholder="YYYYYY"
                 v-model.trim="$v.passportNumber.$model"
             />
@@ -35,7 +37,6 @@
             <textarea
                 class="input"
                 :class="{ 'input--error': $v.passportSource.$error }"
-                type="text"
                 placeholder="Введите кем выдан паспорт"
                 v-model.trim="$v.passportSource.$model"
             >

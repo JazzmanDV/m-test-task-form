@@ -7,6 +7,7 @@
                 class="input"
                 :class="{ 'input--error': $v.index.$error }"
                 type="text"
+                inputmode="numeric"
                 placeholder="XXXYYY"
                 v-model.trim="$v.index.$model"
             />
