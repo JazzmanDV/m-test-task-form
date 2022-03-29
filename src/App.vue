@@ -227,6 +227,8 @@ export default {
 </script>
 
 <style lang="sass">
+@import error
+
 :root
     font-family: "Exo 2", sans-serif
     font-weight: 300
@@ -237,29 +239,6 @@ export default {
 body
     margin: 0
     background-color: #fafafa
-
-.flex-column-center
-    display: flex
-    flex-direction: column
-    justify-content: center
-    align-items: center
-
-.error
-    display: block
-
-    color: red
-    font-size: 0.85rem
-
-    max-width: 15rem
-
-    margin-left: 0.75rem
-
-    &:not(:last-child)
-        margin-bottom: 0.25rem
-
-    &--center
-        margin-left: 0
-        text-align: center
 </style>
 
 <style scoped lang="sass">
@@ -295,6 +274,12 @@ body
     flex-wrap: wrap
     justify-content: center
     gap: 1rem
+
+.flex-column-center
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
 
 .button
     font: inherit

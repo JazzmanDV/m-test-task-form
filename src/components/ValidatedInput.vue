@@ -1,9 +1,6 @@
 <template>
     <div>
-        <label :class="{ 'label-row': labelRow }">
-            {{ label }}{{ vInput.$params.required || vInput.$params.notDefault ? "*" : "" }}
-            <slot></slot>
-        </label>
+        <slot></slot>
         <span v-for="param in getParamsWithError()" :key="param.type" class="error">
             {{ getErrorHint(param) }}
         </span>
@@ -15,8 +12,6 @@ export default {
     name: "ValidatedInput",
     props: {
         vInput: { type: Object, required: true },
-        label: { type: String, required: true },
-        labelRow: { type: Boolean, required: false },
     },
     methods: {
         getParamsWithError() {
@@ -60,17 +55,6 @@ export default {
 };
 </script>
 
-<style scoped lang="sass">
-label
-    display: flex
-    flex-direction: column
-    gap: 0.5rem
-
-    transition: 0.25s color
-
-.label-row
-    flex-direction: row
-
-    input
-        order: -1
+<style lang="sass">
+@import ../error
 </style>
