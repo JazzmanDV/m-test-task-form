@@ -220,6 +220,9 @@ body
     font-size: 0.85rem
     margin-left: 0.75rem
 
+    &:not(:last-child)
+        margin-bottom: 0.25rem
+
     &--center
         margin-left: 0
         text-align: center
