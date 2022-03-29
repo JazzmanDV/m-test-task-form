@@ -2,69 +2,73 @@
     <fieldset class="fieldset">
         <span class="fieldset__title">Общая информация</span>
 
-        <ValidatedInput label="Фамилия" :vInput="$v['lastName']">
+        <ValidatedInput label="Фамилия" :vInput="vFieldSet.lastName">
             <input
                 class="input"
-                :class="{ 'input--error': $v.lastName.$error }"
+                :class="{ 'input--error': vFieldSet.lastName.$error }"
                 type="text"
                 placeholder="Введите фамилию"
-                v-model.trim="$v.lastName.$model"
+                v-model.trim="vFieldSet.lastName.$model"
             />
         </ValidatedInput>
 
-        <ValidatedInput label="Имя" :vInput="$v['firstName']">
+        <ValidatedInput label="Имя" :vInput="vFieldSet.firstName">
             <input
                 class="input"
-                :class="{ 'input--error': $v.firstName.$error }"
+                :class="{ 'input--error': vFieldSet.firstName.$error }"
                 type="text"
                 placeholder="Введите имя"
-                v-model.trim="$v.firstName.$model"
+                v-model.trim="vFieldSet.firstName.$model"
             />
         </ValidatedInput>
 
-        <ValidatedInput label="Отчество" :vInput="$v['middleName']">
+        <ValidatedInput label="Отчество" :vInput="vFieldSet.middleName">
             <input
                 class="input"
-                :class="{ 'input--error': $v.middleName.$error }"
+                :class="{ 'input--error': vFieldSet.middleName.$error }"
                 type="text"
                 placeholder="Введите отчество"
-                v-model.trim="$v.middleName.$model"
+                v-model.trim="vFieldSet.middleName.$model"
             />
         </ValidatedInput>
 
-        <ValidatedInput label="Дата рождения" :vInput="$v['birthdate']">
+        <ValidatedInput label="Дата рождения" :vInput="vFieldSet.birthdate">
             <input
                 class="input"
-                :class="{ 'input--error': $v.birthdate.$error }"
+                :class="{ 'input--error': vFieldSet.birthdate.$error }"
                 type="date"
-                v-model="$v.birthdate.$model"
+                v-model="vFieldSet.birthdate.$model"
             />
         </ValidatedInput>
 
-        <ValidatedInput label="Номер телефона" :vInput="$v['phoneNumber']">
+        <ValidatedInput label="Номер телефона" :vInput="vFieldSet.phoneNumber">
             <input
                 class="input"
-                :class="{ 'input--error': $v.phoneNumber.$error }"
+                :class="{ 'input--error': vFieldSet.phoneNumber.$error }"
                 type="tel"
                 placeholder="7 XXX XXX XX XX"
-                v-model.trim="$v.phoneNumber.$model"
+                v-model.trim="vFieldSet.phoneNumber.$model"
             />
         </ValidatedInput>
 
-        <ValidatedInput label="Пол" :vInput="$v['gender']">
-            <select class="input" :class="{ 'input--error': $v.gender.$error }" v-model="$v.gender.$model">
+        <ValidatedInput label="Пол" :vInput="vFieldSet.gender">
+            <select
+                class="input"
+                :class="{ 'input--error': vFieldSet.gender.$error }"
+                v-model="vFieldSet.gender.$model"
+            >
                 <option value="default">Выберите пол</option>
                 <option value="male">Мужской</option>
                 <option value="female">Женский</option>
             </select>
         </ValidatedInput>
 
-        <ValidatedInput label="Группа клиентов" :vInput="$v['customerGroup']">
+        <ValidatedInput label="Группа клиентов" :vInput="vFieldSet.customerGroup">
             <select
                 class="input"
-                :class="{ 'input--error': $v.customerGroup.$error }"
+                :class="{ 'input--error': vFieldSet.customerGroup.$error }"
                 multiple
-                v-model="$v.customerGroup.$model"
+                v-model="vFieldSet.customerGroup.$model"
             >
                 <option value="vip">VIP</option>
                 <option value="problematic">Проблемные</option>
@@ -72,11 +76,11 @@
             </select>
         </ValidatedInput>
 
-        <ValidatedInput label="Лечащий врач" :vInput="$v['treatingDoctor']">
+        <ValidatedInput label="Лечащий врач" :vInput="vFieldSet.treatingDoctor">
             <select
                 class="input"
-                :class="{ 'input--error': $v.treatingDoctor.$error }"
-                v-model="$v.treatingDoctor.$model"
+                :class="{ 'input--error': vFieldSet.treatingDoctor.$error }"
+                v-model="vFieldSet.treatingDoctor.$model"
             >
                 <option value="default">Выберите лечащего врача</option>
                 <option value="ivanov">Иванов</option>
@@ -85,12 +89,12 @@
             </select>
         </ValidatedInput>
 
-        <ValidatedInput label="Не отправлять SMS" labelRow :vInput="$v['dontSendSMS']">
+        <ValidatedInput label="Не отправлять SMS" labelRow :vInput="vFieldSet.dontSendSMS">
             <input
                 class="input"
-                :class="{ 'input--error': $v.dontSendSMS.$error }"
+                :class="{ 'input--error': vFieldSet.dontSendSMS.$error }"
                 type="checkbox"
-                v-model="$v.dontSendSMS.$model"
+                v-model="vFieldSet.dontSendSMS.$model"
             />
         </ValidatedInput>
     </fieldset>
@@ -103,7 +107,7 @@ export default {
     name: "CommonInfoFieldSet",
     components: { ValidatedInput },
     props: {
-        $v: { type: Object, required: true },
+        vFieldSet: { type: Object, required: true },
     },
 };
 </script>

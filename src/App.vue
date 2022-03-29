@@ -2,9 +2,9 @@
     <div class="app">
         <form class="form" action="./" method="post">
             <div class="fieldsets-wrapper">
-                <CommonInfoFieldSet :$v="$v" />
-                <AddressInfoFieldSet :$v="$v" />
-                <PassportInfoFieldSet :$v="$v" />
+                <CommonInfoFieldSet :vFieldSet="$v.commonInfo" />
+                <AddressInfoFieldSet :vFieldSet="$v.addressInfo" />
+                <PassportInfoFieldSet :vFieldSet="$v.passportInfo" />
             </div>
             <div class="flex-column-center">
                 <input
@@ -87,99 +87,111 @@ export default {
     components: { CommonInfoFieldSet, AddressInfoFieldSet, PassportInfoFieldSet },
     data() {
         return {
-            lastName: "",
-            firstName: "",
-            middleName: "",
-            birthdate: "",
-            phoneNumber: "",
-            gender: "default",
-            customerGroup: [],
-            treatingDoctor: "default",
-            dontSendSMS: false,
+            commonInfo: {
+                lastName: "",
+                firstName: "",
+                middleName: "",
+                birthdate: "",
+                phoneNumber: "",
+                gender: "default",
+                customerGroup: [],
+                treatingDoctor: "default",
+                dontSendSMS: false,
+            },
 
-            index: "",
-            country: "",
-            region: "",
-            city: "",
-            street: "",
-            house: "",
+            addressInfo: {
+                index: "",
+                country: "",
+                region: "",
+                city: "",
+                street: "",
+                house: "",
+            },
 
-            documentType: "default",
-            passportSeries: "",
-            passportNumber: "",
-            passportSource: "",
-            passportDate: "",
+            passportInfo: {
+                documentType: "default",
+                passportSeries: "",
+                passportNumber: "",
+                passportSource: "",
+                passportDate: "",
+            },
         };
     },
     validations: {
-        lastName: {
-            required,
-            maxLength: maxLength(50),
-        },
-        firstName: {
-            required,
-            maxLength: maxLength(50),
-        },
-        middleName: {
-            maxLength: maxLength(50),
-        },
-        birthdate: {
-            required,
-            minDate: minDate(new Date("1900-01-01")),
-            maxDate: maxDate(new Date()),
-        },
-        phoneNumber: {
-            required,
-            numeric: numericWithSpaces,
-            length: lengthWithoutSpaces(11),
-            startsWith: startsWith("7"),
-        },
-        gender: {},
-        customerGroup: {
-            required,
-        },
-        treatingDoctor: {},
-        dontSendSMS: {},
-
-        index: {
-            numeric: numericWithSpaces,
-            length: lengthWithoutSpaces(6),
-        },
-        country: {
-            maxLength: maxLength(50),
-        },
-        region: {
-            maxLength: maxLength(50),
-        },
-        city: {
-            required,
-            maxLength: maxLength(50),
-        },
-        street: {
-            maxLength: maxLength(50),
-        },
-        house: {
-            maxLength: maxLength(50),
+        commonInfo: {
+            lastName: {
+                required,
+                maxLength: maxLength(50),
+            },
+            firstName: {
+                required,
+                maxLength: maxLength(50),
+            },
+            middleName: {
+                maxLength: maxLength(50),
+            },
+            birthdate: {
+                required,
+                minDate: minDate(new Date("1900-01-01")),
+                maxDate: maxDate(new Date()),
+            },
+            phoneNumber: {
+                required,
+                numeric: numericWithSpaces,
+                length: lengthWithoutSpaces(11),
+                startsWith: startsWith("7"),
+            },
+            gender: {},
+            customerGroup: {
+                required,
+            },
+            treatingDoctor: {},
+            dontSendSMS: {},
         },
 
-        documentType: {
-            notDefault,
+        addressInfo: {
+            index: {
+                numeric: numericWithSpaces,
+                length: lengthWithoutSpaces(6),
+            },
+            country: {
+                maxLength: maxLength(50),
+            },
+            region: {
+                maxLength: maxLength(50),
+            },
+            city: {
+                required,
+                maxLength: maxLength(50),
+            },
+            street: {
+                maxLength: maxLength(50),
+            },
+            house: {
+                maxLength: maxLength(50),
+            },
         },
-        passportSeries: {
-            numeric,
-            length: length(4),
-        },
-        passportNumber: {
-            numeric,
-            length: length(6),
-        },
-        passportSource: {
-            maxLength: maxLength(150),
-        },
-        passportDate: {
-            required,
-            minDate: minDate(new Date("1900-01-01")),
-            maxDate: maxDate(new Date()),
+
+        passportInfo: {
+            documentType: {
+                notDefault,
+            },
+            passportSeries: {
+                numeric,
+                length: length(4),
+            },
+            passportNumber: {
+                numeric,
+                length: length(6),
+            },
+            passportSource: {
+                maxLength: maxLength(150),
+            },
+            passportDate: {
+                required,
+                minDate: minDate(new Date("1900-01-01")),
+                maxDate: maxDate(new Date()),
+            },
         },
     },
     methods: {
