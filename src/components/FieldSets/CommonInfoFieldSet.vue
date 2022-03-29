@@ -2,7 +2,7 @@
     <fieldset class="fieldset">
         <span class="fieldset__title">Общая информация</span>
 
-        <ValidatedInput inputName="lastName" label="Фамилия" :$v="$v">
+        <ValidatedInput label="Фамилия" :vInput="$v['lastName']">
             <input
                 class="input"
                 :class="{ 'input--error': $v.lastName.$error }"
@@ -12,7 +12,7 @@
             />
         </ValidatedInput>
 
-        <ValidatedInput inputName="firstName" label="Имя" :$v="$v">
+        <ValidatedInput label="Имя" :vInput="$v['firstName']">
             <input
                 class="input"
                 :class="{ 'input--error': $v.firstName.$error }"
@@ -22,7 +22,7 @@
             />
         </ValidatedInput>
 
-        <ValidatedInput inputName="middleName" label="Отчество" :$v="$v">
+        <ValidatedInput label="Отчество" :vInput="$v['middleName']">
             <input
                 class="input"
                 :class="{ 'input--error': $v.middleName.$error }"
@@ -32,7 +32,7 @@
             />
         </ValidatedInput>
 
-        <ValidatedInput inputName="birthdate" label="Дата рождения" :$v="$v">
+        <ValidatedInput label="Дата рождения" :vInput="$v['birthdate']">
             <input
                 class="input"
                 :class="{ 'input--error': $v.birthdate.$error }"
@@ -41,7 +41,7 @@
             />
         </ValidatedInput>
 
-        <ValidatedInput inputName="phoneNumber" label="Номер телефона" :$v="$v">
+        <ValidatedInput label="Номер телефона" :vInput="$v['phoneNumber']">
             <input
                 class="input"
                 :class="{ 'input--error': $v.phoneNumber.$error }"
@@ -51,7 +51,7 @@
             />
         </ValidatedInput>
 
-        <ValidatedInput inputName="gender" label="Пол" :$v="$v">
+        <ValidatedInput label="Пол" :vInput="$v['gender']">
             <select class="input" :class="{ 'input--error': $v.gender.$error }" v-model="$v.gender.$model">
                 <option value="default">Выберите пол</option>
                 <option value="male">Мужской</option>
@@ -59,7 +59,7 @@
             </select>
         </ValidatedInput>
 
-        <ValidatedInput inputName="customerGroup" label="Группа клиентов" :$v="$v">
+        <ValidatedInput label="Группа клиентов" :vInput="$v['customerGroup']">
             <select
                 class="input"
                 :class="{ 'input--error': $v.customerGroup.$error }"
@@ -72,7 +72,7 @@
             </select>
         </ValidatedInput>
 
-        <ValidatedInput inputName="treatingDoctor" label="Лечащий врач" :$v="$v">
+        <ValidatedInput label="Лечащий врач" :vInput="$v['treatingDoctor']">
             <select
                 class="input"
                 :class="{ 'input--error': $v.treatingDoctor.$error }"
@@ -85,7 +85,7 @@
             </select>
         </ValidatedInput>
 
-        <ValidatedInput inputName="dontSendSMS" label="Не отправлять SMS" labelRow :$v="$v">
+        <ValidatedInput label="Не отправлять SMS" labelRow :vInput="$v['dontSendSMS']">
             <input
                 class="input"
                 :class="{ 'input--error': $v.dontSendSMS.$error }"
@@ -103,7 +103,7 @@ export default {
     name: "CommonInfoFieldSet",
     components: { ValidatedInput },
     props: {
-        $v: Object,
+        $v: { type: Object, required: true },
     },
 };
 </script>

@@ -1,14 +1,10 @@
 <template>
     <div>
         <label :class="{ 'label-row': labelRow }">
-            {{ label }}{{ $v[inputName].$params.required || $v[inputName].$params.notDefault ? "*" : "" }}
+            {{ label }}{{ vInput.$params.required || vInput.$params.notDefault ? "*" : "" }}
             <slot></slot>
         </label>
-        <span
-            v-for="param in $v[inputName].$params"
-            v-if="$v[inputName].$error && !$v[inputName][param.type]"
-            class="error"
-        >
+        <span v-for="param in getParamsWithError(vInput.$params)" :key="param.type" class="error">
             {{ getErrorHint(param) }}
         </span>
     </div>
@@ -18,12 +14,17 @@
 export default {
     name: "ValidatedInput",
     props: {
-        $v: Object,
-        inputName: String,
-        label: String,
-        labelRow: Boolean,
+        vInput: { type: Object, required: true },
+        label: { type: String, required: true },
+        labelRow: { type: Boolean, required: false },
     },
     methods: {
+        getParamsWithError(params) {
+            if (!this.vInput.$error) {
+                return [];
+            }
+            return Object.values(params).filter((param) => !this.vInput[param.type]);
+        },
         getLocalDate(date) {
             return date.toLocaleDateString("en-GB").split("/").join("-");
         },

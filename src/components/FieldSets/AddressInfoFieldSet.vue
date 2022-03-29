@@ -2,7 +2,7 @@
     <fieldset class="fieldset">
         <span class="fieldset__title">Адрес</span>
 
-        <ValidatedInput inputName="index" label="Индекс" :$v="$v">
+        <ValidatedInput label="Индекс" :vInput="$v['index']">
             <input
                 class="input"
                 :class="{ 'input--error': $v.index.$error }"
@@ -13,7 +13,7 @@
             />
         </ValidatedInput>
 
-        <ValidatedInput inputName="country" label="Страна" :$v="$v">
+        <ValidatedInput label="Страна" :vInput="$v['country']">
             <input
                 class="input"
                 :class="{ 'input--error': $v.country.$error }"
@@ -23,7 +23,7 @@
             />
         </ValidatedInput>
 
-        <ValidatedInput inputName="region" label="Область" :$v="$v">
+        <ValidatedInput label="Область" :vInput="$v['region']">
             <input
                 class="input"
                 :class="{ 'input--error': $v.region.$error }"
@@ -33,7 +33,7 @@
             />
         </ValidatedInput>
 
-        <ValidatedInput inputName="city" label="Город" :$v="$v">
+        <ValidatedInput label="Город" :vInput="$v['city']">
             <input
                 class="input"
                 :class="{ 'input--error': $v.city.$error }"
@@ -43,7 +43,7 @@
             />
         </ValidatedInput>
 
-        <ValidatedInput inputName="street" label="Улица" :$v="$v">
+        <ValidatedInput label="Улица" :vInput="$v['street']">
             <input
                 class="input"
                 :class="{ 'input--error': $v.street.$error }"
@@ -53,7 +53,7 @@
             />
         </ValidatedInput>
 
-        <ValidatedInput inputName="house" label="Дом" :$v="$v">
+        <ValidatedInput label="Дом" :vInput="$v['house']">
             <input
                 class="input"
                 :class="{ 'input--error': $v.house.$error }"
@@ -72,7 +72,7 @@ export default {
     name: "AddressInfoFieldSet",
     components: { ValidatedInput },
     props: {
-        $v: Object,
+        $v: { type: Object, required: true },
     },
 };
 </script>

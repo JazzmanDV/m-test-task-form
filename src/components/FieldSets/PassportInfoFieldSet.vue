@@ -2,7 +2,7 @@
     <fieldset class="fieldset">
         <span class="fieldset__title">Паспорт</span>
 
-        <ValidatedInput inputName="documentType" label="Тип документа" :$v="$v">
+        <ValidatedInput label="Тип документа" :vInput="$v['documentType']">
             <select class="input" :class="{ 'input--error': $v.documentType.$error }" v-model="$v.documentType.$model">
                 <option value="default">Выберите тип документа</option>
                 <option value="passport">Паспорт</option>
@@ -11,7 +11,7 @@
             </select>
         </ValidatedInput>
 
-        <ValidatedInput inputName="passportSeries" label="Серия" :$v="$v">
+        <ValidatedInput label="Серия" :vInput="$v['passportSeries']">
             <input
                 class="input"
                 :class="{ 'input--error': $v.passportSeries.$error }"
@@ -22,7 +22,7 @@
             />
         </ValidatedInput>
 
-        <ValidatedInput inputName="passportNumber" label="Номер" :$v="$v">
+        <ValidatedInput label="Номер" :vInput="$v['passportNumber']">
             <input
                 class="input"
                 :class="{ 'input--error': $v.passportNumber.$error }"
@@ -33,7 +33,7 @@
             />
         </ValidatedInput>
 
-        <ValidatedInput inputName="passportSource" label="Кем выдан" :$v="$v">
+        <ValidatedInput label="Кем выдан" :vInput="$v['passportSource']">
             <textarea
                 class="input"
                 :class="{ 'input--error': $v.passportSource.$error }"
@@ -43,7 +43,7 @@
             </textarea>
         </ValidatedInput>
 
-        <ValidatedInput inputName="passportDate" label="Дата выдачи" :$v="$v">
+        <ValidatedInput label="Дата выдачи" :vInput="$v['passportDate']">
             <input
                 class="input"
                 :class="{ 'input--error': $v.passportDate.$error }"
@@ -61,7 +61,7 @@ export default {
     name: "PassportInfoFieldSet",
     components: { ValidatedInput },
     props: {
-        $v: Object,
+        $v: { type: Object, required: true },
     },
 };
 </script>
