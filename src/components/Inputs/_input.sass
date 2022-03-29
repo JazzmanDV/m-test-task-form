@@ -1,0 +1,24 @@
+@import ../../variables
+
+.input
+    font: inherit
+
+    padding: 0.5rem
+
+    border: none
+    border-radius: 0.5rem
+
+    box-shadow: $primary-box-shadow
+
+    outline: none
+
+    transition: 0.25s box-shadow
+
+    &:focus-visible
+        box-shadow: $primary-box-shadow--hovered
+
+.input--error
+    box-shadow: $error-box-shadow
+
+    &:focus-visible
+        box-shadow: $error-box-shadow--hovered
