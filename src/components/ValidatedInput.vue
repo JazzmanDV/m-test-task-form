@@ -1,16 +1,16 @@
 <template>
     <div>
         <label :class="{ 'label-row': labelRow }">
-            {{ label }}{{ $v[inputName].$params.required ? "*" : "" }}
+            {{ label }}{{ $v[inputName].$params.required || $v[inputName].$params.notDefault ? "*" : "" }}
             <slot></slot>
         </label>
-        <div
+        <span
             v-for="param in $v[inputName].$params"
             v-if="$v[inputName].$error && !$v[inputName][param.type]"
             class="error"
         >
             {{ getErrorHint(param) }}
-        </div>
+        </span>
     </div>
 </template>
 
@@ -69,9 +69,4 @@ label
 
     input
         order: -1
-
-.error
-    color: red
-    font-size: 0.75rem
-    margin-left: 1rem
 </style>

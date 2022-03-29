@@ -6,7 +6,17 @@
                 <AddressInfoFieldSet :$v="$v" />
                 <PassportInfoFieldSet :$v="$v" />
             </div>
-            <input class="button" type="submit" value="Создать нового клиента" v-on:click="onSubmit" />
+            <div class="flex-column-center">
+                <input
+                    class="button"
+                    type="submit"
+                    value="Создать нового клиента"
+                    :disabled="$v.$anyError"
+                    :class="{ 'button--disabled': $v.$anyError }"
+                    @click="handleSubmitButtonClick"
+                />
+                <span v-if="$v.$anyError" class="error error--center">Некоторые поля заполнены неправильно</span>
+            </div>
         </form>
     </div>
 </template>
@@ -153,7 +163,6 @@ export default {
         },
 
         documentType: {
-            required,
             notDefault,
         },
         passportSeries: {
@@ -174,7 +183,7 @@ export default {
         },
     },
     methods: {
-        onSubmit(e) {
+        handleSubmitButtonClick(e) {
             e.preventDefault();
 
             this.$v.$touch();
@@ -198,6 +207,22 @@ export default {
 body
     margin: 0
     background-color: #fafafa
+
+.flex-column-center
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+.error
+    display: block
+    color: red
+    font-size: 0.85rem
+    margin-left: 0.75rem
+
+    &--center
+        margin-left: 0
+        text-align: center
 </style>
 
 <style scoped lang="sass">
@@ -258,4 +283,7 @@ body
     &:hover,
     &:focus-visible
         box-shadow: $primary-box-shadow--hovered
+
+    &--disabled
+        cursor: default
 </style>
