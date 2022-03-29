@@ -4,7 +4,7 @@
             {{ label }}{{ vInput.$params.required || vInput.$params.notDefault ? "*" : "" }}
             <slot></slot>
         </label>
-        <span v-for="param in getParamsWithError(vInput.$params)" :key="param.type" class="error">
+        <span v-for="param in getParamsWithError()" :key="param.type" class="error">
             {{ getErrorHint(param) }}
         </span>
     </div>
@@ -19,11 +19,11 @@ export default {
         labelRow: { type: Boolean, required: false },
     },
     methods: {
-        getParamsWithError(params) {
+        getParamsWithError() {
             if (!this.vInput.$error) {
                 return [];
             }
-            return Object.values(params).filter((param) => !this.vInput[param.type]);
+            return Object.values(this.vInput.$params).filter((param) => !this.vInput[param.type]);
         },
         getLocalDate(date) {
             return date.toLocaleDateString("en-GB").split("/").join("-");
