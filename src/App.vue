@@ -80,7 +80,22 @@ const notDefault = helpers.withParams({ type: "notDefault", value: "default" }, 
     return value !== "default";
 });
 
-const numericWithSpaces = helpers.regex("numeric", /^[0-9\s]*$/);
+const alphaWithSpecialSymbols = helpers.withParams(
+    { type: "alphaWithSpecialSymbols", value: "букв, пробелов, тире" },
+    (value) => {
+        if (!value) {
+            return true;
+        }
+        return /^[а-яА-Яa-zA-Z\s-]*$/.test(value);
+    }
+);
+
+const numericWithSpaces = helpers.withParams({ type: "numericWithSpaces", value: "цифр, пробелов" }, (value) => {
+    if (!value) {
+        return true;
+    }
+    return /^[0-9\s]*$/.test(value);
+});
 
 export default {
     name: "App",
@@ -121,14 +136,17 @@ export default {
         commonInfo: {
             lastName: {
                 required,
-                maxLength: maxLength(50),
+                alphaWithSpecialSymbols,
+                maxLength: maxLength(100),
             },
             firstName: {
                 required,
-                maxLength: maxLength(50),
+                alphaWithSpecialSymbols,
+                maxLength: maxLength(100),
             },
             middleName: {
-                maxLength: maxLength(50),
+                alphaWithSpecialSymbols,
+                maxLength: maxLength(100),
             },
             birthdate: {
                 required,
@@ -137,7 +155,7 @@ export default {
             },
             phoneNumber: {
                 required,
-                numeric: numericWithSpaces,
+                numericWithSpaces,
                 length: lengthWithoutSpaces(11),
                 startsWith: startsWith("7"),
             },
@@ -151,24 +169,24 @@ export default {
 
         addressInfo: {
             index: {
-                numeric: numericWithSpaces,
+                numericWithSpaces,
                 length: lengthWithoutSpaces(6),
             },
             country: {
-                maxLength: maxLength(50),
+                maxLength: maxLength(100),
             },
             region: {
-                maxLength: maxLength(50),
+                maxLength: maxLength(100),
             },
             city: {
                 required,
-                maxLength: maxLength(50),
+                maxLength: maxLength(100),
             },
             street: {
-                maxLength: maxLength(50),
+                maxLength: maxLength(100),
             },
             house: {
-                maxLength: maxLength(50),
+                maxLength: maxLength(100),
             },
         },
 
@@ -185,7 +203,7 @@ export default {
                 length: length(6),
             },
             passportSource: {
-                maxLength: maxLength(150),
+                maxLength: maxLength(250),
             },
             passportDate: {
                 required,

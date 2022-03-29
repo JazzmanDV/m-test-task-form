@@ -37,6 +37,9 @@ export default {
                     return "Значение должно состоять только из цифр";
                 case "alpha":
                     return "Значение должно состоять только из букв";
+                case "numericWithSpaces":
+                case "alphaWithSpecialSymbols":
+                    return `Значение может состоять только из ${param.value}`;
                 case "length":
                     return `Длина должна быть равна ${param.value} символам`;
                 case "minLength":
