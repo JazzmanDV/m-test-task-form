@@ -216,8 +216,12 @@ body
 
 .error
     display: block
+
     color: red
     font-size: 0.85rem
+
+    max-width: 15rem
+
     margin-left: 0.75rem
 
     &:not(:last-child)
@@ -289,4 +293,9 @@ body
 
     &--disabled
         cursor: default
+
+@media (max-width: 400px)
+    .app,
+    .form
+        padding: 0.5rem
 </style>
