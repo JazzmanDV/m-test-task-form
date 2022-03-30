@@ -7,13 +7,10 @@
                 <PassportInfoFieldSet :vFieldSet="$v.passportInfo" />
             </div>
             <div class="flex-column-center">
-                <input
-                    class="button"
-                    type="submit"
+                <SubmitInput
                     value="Создать нового клиента"
                     :disabled="$v.$anyError"
-                    :class="{ 'button--disabled': $v.$anyError }"
-                    @click="handleSubmitButtonClick"
+                    @on-submit-button-click="handleSubmitButtonClick"
                 />
                 <span v-if="$v.$anyError" class="error error--center">Некоторые поля заполнены неправильно</span>
             </div>
@@ -27,6 +24,8 @@ import { helpers, required, maxLength, numeric } from "vuelidate/lib/validators"
 import CommonInfoFieldSet from "./components/FieldSets/CommonInfoFieldSet.vue";
 import AddressInfoFieldSet from "./components/FieldSets/AddressInfoFieldSet.vue";
 import PassportInfoFieldSet from "./components/FieldSets/PassportInfoFieldSet.vue";
+
+import SubmitInput from "./components/Inputs/SubmitInput.vue";
 
 const minDate = (minDate) => {
     return helpers.withParams({ type: "minDate", value: minDate }, (value) => {
@@ -99,7 +98,7 @@ const numericWithSpaces = helpers.withParams({ type: "numericWithSpaces", value:
 
 export default {
     name: "App",
-    components: { CommonInfoFieldSet, AddressInfoFieldSet, PassportInfoFieldSet },
+    components: { CommonInfoFieldSet, AddressInfoFieldSet, PassportInfoFieldSet, SubmitInput },
     data() {
         return {
             commonInfo: {
@@ -280,34 +279,6 @@ body
     flex-direction: column
     justify-content: center
     align-items: center
-
-.button
-    font: inherit
-
-    width: fit-content
-    height: fit-content
-
-    background-color: white
-
-    padding: 0.5rem
-
-    border: none
-    border-radius: 0.5rem
-
-    outline: none
-
-    box-shadow: $primary-box-shadow
-
-    cursor: pointer
-
-    transition: 0.25s box-shadow
-
-    &:hover,
-    &:focus-visible
-        box-shadow: $primary-box-shadow--hovered
-
-    &--disabled
-        cursor: default
 
 @media (max-width: 400px)
     .app,
